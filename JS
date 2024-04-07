@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos</title>
+</head>
+<body>
+
+<button id="botao">Clique aqui</button>
+
+<script>
+   
+    function onClick(event) {
+        alert("Você clicou no botão!");
+    }
+
+    
+    function onMouseOver(event) {
+        event.target.style.backgroundColor = "blue";
+    }
+
+    
+    function onMouseOut(event) {
+        event.target.style.backgroundColor = "";
+    }
+
+
+    function onKeyDown(event) {
+        console.log("Tecla pressionada: " + event.key);
+    }
+
+  
+    function onKeyUp(event) {
+        console.log("Tecla liberada: " + event.key);
+    }
+
+    
+    function onChange(event) {
+        console.log("Valor do input alterado: " + event.target.value);
+    }
+
+    
+    var botao = document.getElementById("botao");
+
+    // Adicionando listeners de evento ao botão
+    botao.addEventListener("click", onClick);
+    botao.addEventListener("mouseover", onMouseOver);
+    botao.addEventListener("mouseout", onMouseOut);
+
+   
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("keyup", onKeyUp);
+
+
+    var input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Digite algo..";
+    input.addEventListener("change", onChange);
+    document.body.appendChild(input);
+</script>
+
+</body>
+</html>
